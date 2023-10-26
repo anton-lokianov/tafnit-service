@@ -34,7 +34,8 @@ const Login = () => {
           <Input type="password" icon={<FiLock />} label="Password" />
           <Button
             className="primeBtn tracking-[0.3em] flex justify-center items-center gap-2 group"
-            type="submit">
+            type="submit"
+          >
             LOGIN{" "}
             <AiOutlineArrowRight className="text-[1.2rem] group-hover:translate-x-2 ease-in-out transition-all" />
           </Button>
@@ -43,7 +44,7 @@ const Login = () => {
           forgot password?
         </span>
         <motion.div className="mt-3" animate={controls}>
-          <GiTowTruck className="text-white text-[4rem]" />
+          <GiTowTruck className="text-orange-500 text-[4rem]" />
         </motion.div>
       </div>
     </div>

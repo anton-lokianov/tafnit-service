@@ -4,6 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import helmet from "helmet";
+import authRoute from "./controllers/auth.js";
 
 dotenv.config();
 
@@ -19,6 +20,8 @@ app.use(cors());
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+
+app.use("/auth", authRoute);
 
 const PORT = process.env.PORT || 5000;
 

@@ -51,7 +51,7 @@ const roadCallSchema = new Schema({
 const clientSchema = new Schema({
   firstName: { type: String, required: true, trim: true, minlength: 2 },
   lastName: { type: String, required: true, trim: true, minlength: 2 },
-  phoneNumber: { type: Number, required: true, trim: true, minlength: 10 },
+  phoneNumber: { type: Number, required: true, trim: true, minlength: 7 },
   carModal: { type: String, required: true, minlength: 2 },
   carYear: { type: Number, required: true, minlength: 4 },
   carColor: { type: String, required: true, minlength: 2 },
@@ -113,7 +113,6 @@ const notificationSchema = new Schema({
 
 export const Notification = model("notification", notificationSchema);
 export const Shift = model("shift", shiftSchema);
-export const Insurance = model("insurance", insuranceSchema);
 export const RoadCall = model("roadCall", roadCallSchema);
 export const Driver = model("driver", driverSchema);
 export const User = model("user", userSchema);

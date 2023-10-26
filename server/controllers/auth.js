@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { User } from "../models/user";
+import { User } from "../models/tafint.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
-export const authRoute = Router();
+const router = Router();
 
-authRoute.post("/createUser", async (req, res) => {
+router.post("/createUser", async (req, res) => {
   try {
     const user = req.body;
     const checkIfUserNameExists = await User.findOne({
@@ -31,7 +31,7 @@ authRoute.post("/createUser", async (req, res) => {
   }
 });
 
-authRoute.post("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
@@ -64,4 +64,6 @@ authRoute.post("/login", async (req, res) => {
   }
 });
 
-authRoute.post("/forgotPass", (req, res) => {});
+router.post("/forgotPass", (req, res) => {});
+
+export default router;

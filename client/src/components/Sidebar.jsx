@@ -3,10 +3,10 @@ import { sidebarNav } from "../utils/constants";
 
 const Sidebar = () => {
   return (
-    <div className="flex min-h-full items-center">
+    <div className="h-full p-2">
       <div
         className="bg-indigo-700 text-slate-50 py-2 px-6 shadow-md shadow-black w-[330px] 
-        rounded-sm flex flex-col justify-between h-[520px] ml-2"
+        rounded-sm flex flex-col justify-between h-full ml-2"
       >
         <nav className="flex flex-col gap-2">
           {sidebarNav.map((item, idx) => (
