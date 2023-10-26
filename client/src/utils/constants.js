@@ -13,7 +13,7 @@ export const sidebarNav = [
   },
   {
     path: "",
-    name: "Settings",
+    name: "Driver Management",
   },
   {
     path: "",
@@ -34,9 +34,5 @@ export const sidebarNav = [
   {
     path: "",
     name: "Documentation",
-  },
-  {
-    path: "",
-    name: "Feedback",
   },
 ];

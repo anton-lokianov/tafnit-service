@@ -17,7 +17,7 @@ const SearchPanel = () => {
           <Input placeholder="Vehicle licensing" icon={<LiaCarSideSolid />} />
         </form>
       </div>
-      <div className="bg-slate-300 w-2/3 rounded-sm p-1">
+      <div className="bg-slate-300 w-2/3 rounded-sm py-1">
         <h2 className="h2">Notifications</h2>
       </div>
       <div className="flex justify-center items-center flex-col gap-2">

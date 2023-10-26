@@ -8,17 +8,17 @@ const RootLayout = () => {
   const hideLayout = pathWithOutLayout.includes(location.pathname);
 
   return (
-    <div key={location.pathname} className="grid grid-rows-[7vh,87vh,6vh]">
+    <div key={location.pathname} className="grid grid-rows-layout min-h-screen">
       {!hideLayout && (
-        <header className="">
+        <header className="row-start-1">
           <Header />
         </header>
       )}
-      <main>
+      <main className="row-start-2">
         <Outlet />
       </main>
       {!hideLayout && (
-        <footer>
+        <footer className="row-start-3">
           <Footer />
         </footer>
       )}

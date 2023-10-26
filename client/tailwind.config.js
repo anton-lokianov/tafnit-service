@@ -6,6 +6,9 @@ export default {
       backgroundImage: {
         login: "url('./src/assets/bg-login.avif')",
       },
+      gridTemplateRows: {
+        layout: "auto 1fr auto",
+      },
     },
   },
   plugins: [],
