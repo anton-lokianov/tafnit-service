@@ -2,7 +2,7 @@ const Table = () => {
   return (
     <>
       <h1 className="text-orange-600 font-bold text-center">service calls</h1>
-      <table className="w-[98%] mx-auto bg-gray-400 border border-slate-800 my-2">
+      <table className="w-[98%] mx-auto bg-slate-300 border border-slate-800 my-2">
         <thead>
           <tr>
             <th className="">service call</th>

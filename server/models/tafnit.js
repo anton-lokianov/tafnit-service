@@ -12,7 +12,8 @@ const userSchema = new Schema({
     required: true,
     default: "service",
   },
-  phone: { type: Number, required: true, trim: true, minlength: 10 },
+  phone: { type: String, required: true, trim: true },
+  timestamp: { type: Date, default: Date.now },
 });
 
 const roadCallSchema = new Schema({
@@ -51,7 +52,7 @@ const roadCallSchema = new Schema({
 const clientSchema = new Schema({
   firstName: { type: String, required: true, trim: true, minlength: 2 },
   lastName: { type: String, required: true, trim: true, minlength: 2 },
-  phoneNumber: { type: Number, required: true, trim: true, minlength: 7 },
+  phoneNumber: { type: String, required: true, trim: true, minlength: 7 },
   carModal: { type: String, required: true, minlength: 2 },
   carYear: { type: Number, required: true, minlength: 4 },
   carColor: { type: String, required: true, minlength: 2 },
@@ -65,7 +66,7 @@ const clientSchema = new Schema({
 const driverSchema = new Schema({
   firstName: { type: String, required: true, trim: true, minlength: 2 },
   lastName: { type: String, required: true, trim: true, minlength: 2 },
-  phoneNumber: { type: Number, required: true, trim: true, minlength: 10 },
+  phoneNumber: { type: String, required: true, trim: true, minlength: 10 },
   id: { type: Number, required: true, minlength: 9 },
   carNumber: { type: String, required: true, minlength: 2 },
   status: {

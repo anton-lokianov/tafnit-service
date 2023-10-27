@@ -1,12 +1,15 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "./ui/Button";
+import { setLogout } from "../store/auth-slice";
 
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleExit = () => {
-    if (location.pathname === "/dashboard") return;
+    if (location.pathname === "/dashboard") {
+      setLogout();
+    }
     navigate(-1);
   };
 

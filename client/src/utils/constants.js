@@ -4,15 +4,15 @@ export const sidebarNav = [
     name: "Operating System",
   },
   {
-    path: "/panel/hours-report",
+    path: "",
     name: "Hours Report",
   },
   {
-    path: "",
+    path: "/userPanel",
     name: "User Management",
   },
   {
-    path: "",
+    path: "/driverPanel",
     name: "Driver Management",
   },
   {

@@ -3,13 +3,20 @@ import Input from "../components/ui/Input";
 import { FiLogIn, FiUser, FiLock } from "react-icons/fi";
 import { GiTowTruck } from "react-icons/gi";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { fetchLogin } from "../utils/fetch-db-api";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../store/auth-slice";
 
 const Login = () => {
   const controls = useAnimation();
   const navigate = useNavigate();
+  const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     controls.start({
@@ -18,9 +25,20 @@ const Login = () => {
     });
   }, [controls]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate("/dashboard");
+  const onSubmit = async (data) => {
+    try {
+      setIsLoading(true);
+      const login = await fetchLogin(data.username, data.password);
+      if (login) {
+        const { user, token } = login;
+        dispatch(setLogin({ user, token }));
+        navigate("/dashboard");
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error("An error occurred during login:", error);
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -29,15 +47,30 @@ const Login = () => {
         <h1 className="text-center flex justify-center items-center gap-3 font-bold text-[2.5rem] text-white mb-3">
           Tafnit <FiLogIn className="text-indigo-600" />
         </h1>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-          <Input label="User name" icon={<FiUser />} />
-          <Input type="password" icon={<FiLock />} label="Password" />
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+          <Input
+            label="User name"
+            {...register("username")}
+            icon={<FiUser />}
+          />
+          <Input
+            type="password"
+            {...register("password")}
+            icon={<FiLock />}
+            label="Password"
+          />
           <Button
-            className="primeBtn tracking-[0.3em] flex justify-center items-center gap-2 group"
+            className="primeBtn tracking-[0.3em] mt-5 flex justify-center items-center gap-2 group"
             type="submit"
           >
-            LOGIN{" "}
-            <AiOutlineArrowRight className="text-[1.2rem] group-hover:translate-x-2 ease-in-out transition-all" />
+            {isLoading ? (
+              "Loading..."
+            ) : (
+              <>
+                {"LOGIN"}
+                <AiOutlineArrowRight className="text-[1.2rem] group-hover:translate-x-2 ease-in-out transition-all" />
+              </>
+            )}
           </Button>
         </form>
         <span className="underline hover:text-slate-50 hover:cursor-pointer ease-in-out transition-all">

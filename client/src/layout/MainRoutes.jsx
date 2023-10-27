@@ -3,6 +3,8 @@ import RootLayout from "./RootLayout";
 import Login from "./../pages/Login";
 import Panel from "./../pages/Panel";
 import Dashboard from "../pages/Dashboard";
+import DriverPanel from "../pages/DriverPanel";
+import UserPanel from "../pages/UserPanel";
 
 export const routes = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ export const routes = createBrowserRouter([
       {
         path: "/panel",
         element: <Panel />,
+      },
+      {
+        path: "/driverPanel",
+        element: <DriverPanel />,
+      },
+      {
+        path: "/userPanel",
+        element: <UserPanel />,
       },
     ],
   },

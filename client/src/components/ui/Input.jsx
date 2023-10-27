@@ -1,12 +1,13 @@
 import React from "react";
 
-const Input = ({ name, label, icon, ...rest }) => {
+const Input = React.forwardRef(({ name, label, icon, ...rest }, ref) => {
   return (
-    <div className="mb-4 relative">
+    <div className="relative">
       {label && (
         <label
           htmlFor={name}
-          className="block text-md font-medium text-slate-900">
+          className="block text-md font-medium text-slate-900"
+        >
           {label}
         </label>
       )}
@@ -16,6 +17,7 @@ const Input = ({ name, label, icon, ...rest }) => {
         </div>
       )}
       <input
+        ref={ref}
         id={name}
         name={name}
         {...rest}
@@ -24,6 +26,6 @@ const Input = ({ name, label, icon, ...rest }) => {
       />
     </div>
   );
-};
+});
 
 export default Input;
