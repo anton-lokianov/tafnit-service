@@ -1,10 +1,11 @@
 import Sidebar from "../components/SideBar";
+import GoogleMaps from "../components/GoogleMaps";
 
 const Dashboard = () => {
   return (
-    <div className="h-full w-full">
+    <div className="h-full flex">
       <Sidebar />
-      {/* <GoogleMaps /> */}
+      <GoogleMaps />
     </div>
   );
 };

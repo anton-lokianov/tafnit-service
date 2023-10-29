@@ -7,10 +7,7 @@ const Footer = () => {
   const navigate = useNavigate();
 
   const handleExit = () => {
-    if (location.pathname === "/dashboard") {
-      setLogout();
-    }
-    navigate(-1);
+    setLogout();
   };
 
   return (
@@ -19,11 +16,13 @@ const Footer = () => {
         Exit
       </Button>
       <div className="flex gap-2">
-        <Button className="primeBtn" onClick={() => location.reload()}>
+        <Button className="primeBtn" onClick={() => window.location.reload()}>
           Refresh
         </Button>
         <Button className="primeBtn">Clear</Button>
-        <Button className="primeBtn">Menu</Button>
+        <Button className="primeBtn" onClick={() => navigate("/dashboard")}>
+          Menu
+        </Button>
       </div>
     </div>
   );

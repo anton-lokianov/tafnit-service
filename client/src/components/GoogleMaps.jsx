@@ -9,11 +9,12 @@ const GoogleMaps = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="h-screen">
+    <div className="flex-grow p-3">
       <GoogleMap
-        mapContainerStyle={{ width: "100%", height: "100vh" }}
-        zoom={8}
-        center={{ lat: -34.397, lng: 150.644 }}></GoogleMap>
+        mapContainerStyle={{ width: "100%", height: "100%" }}
+        zoom={7}
+        center={{ lat: 31.046051, lng: 34.851612 }}
+      ></GoogleMap>
     </div>
   );
 };
