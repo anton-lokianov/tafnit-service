@@ -8,6 +8,7 @@ const Footer = () => {
 
   const handleExit = () => {
     setLogout();
+    navigate("/");
   };
 
   return (
