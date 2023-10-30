@@ -1,4 +1,3 @@
-import { GrSystem } from "react-icons/gr";
 import { CiDesktop } from "react-icons/ci";
 import { LiaUserClockSolid } from "react-icons/lia";
 import { TbUserCog } from "react-icons/tb";
@@ -6,6 +5,8 @@ import { GiCartwheel } from "react-icons/gi";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { IoAnalyticsOutline } from "react-icons/io5";
+import { BsQuestionCircle } from "react-icons/bs";
+import { BsShieldLock } from "react-icons/bs";
 
 export const sidebarNav = [
   {
@@ -41,12 +42,12 @@ export const sidebarNav = [
   {
     path: "",
     name: "Logs",
-    icon: <GrSystem />,
+    icon: <BsShieldLock />,
   },
   {
     path: "",
     name: "Support",
-    icon: <GrSystem />,
+    icon: <BsQuestionCircle />,
   },
   {
     path: "",

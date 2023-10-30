@@ -8,8 +8,8 @@ import Input from "./ui/Input";
 import Button from "./ui/Button";
 import { useState } from "react";
 import { BsFillCursorFill } from "react-icons/bs";
-import { RxReset } from "react-icons/rx";
 import { useForm } from "react-hook-form";
+import { FaXmark } from "react-icons/fa6";
 
 const center = { lat: 31.046051, lng: 34.851612 };
 const libraries = ["places"];
@@ -78,7 +78,7 @@ const GoogleMaps = () => {
         {directions && <DirectionsRenderer directions={directions} />}
       </GoogleMap>
       <div className="absolute z-10 top-0 left-1/2 transform -translate-x-1/2 mt-4">
-        <div className="flex flex-col p-4 bg-slate-300 rounded-md">
+        <div className="flex flex-col p-4 bg-slate-200 rounded-md">
           <form className="flex gap-2" onSubmit={handleSubmit(calculateRoute)}>
             <Autocomplete>
               <Input placeholder="origin" {...register("origin")} />
@@ -94,14 +94,14 @@ const GoogleMaps = () => {
             <Button
               onClick={handleReset}
               className="bg-indigo-400 hover:bg-indigo-500 text-white transition-all ease-in">
-              <RxReset />
+              <FaXmark />
             </Button>
           </form>
           <div className="flex justify-between mt-4">
             <span>distance: {distance}</span>
             <span>duration: {duration}</span>
             <Button
-              className="bg-indigo-400 hover:bg-indigo-500 text-white transition-all ease-in"
+              className="bg-indigo-400 hover:bg-indigo-500 text-white transition-all ease-in py-2"
               onClick={() => {
                 map.panTo(center);
                 map.setZoom(7);
