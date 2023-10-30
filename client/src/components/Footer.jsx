@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="flex justify-between px-4 bg-slate-300 py-3 h-full">
+    <div className="flex justify-between px-4 bg-slate-300 py-3 h-full items-center">
       <Button className="primeBtn" onClick={handleExit}>
         Exit
       </Button>
