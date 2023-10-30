@@ -78,7 +78,7 @@ const GoogleMaps = () => {
         {directions && <DirectionsRenderer directions={directions} />}
       </GoogleMap>
       <div className="absolute z-10 top-0 left-1/2 transform -translate-x-1/2 mt-4">
-        <div className="flex flex-col p-4 bg-slate-100 rounded-md">
+        <div className="flex flex-col p-4 bg-slate-300 rounded-md">
           <form className="flex gap-2" onSubmit={handleSubmit(calculateRoute)}>
             <Autocomplete>
               <Input placeholder="origin" {...register("origin")} />

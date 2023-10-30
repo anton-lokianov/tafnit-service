@@ -6,8 +6,7 @@ const Input = React.forwardRef(({ name, label, icon, ...rest }, ref) => {
       {label && (
         <label
           htmlFor={name}
-          className="block text-md font-medium text-slate-900"
-        >
+          className="block text-md font-medium text-slate-900">
           {label}
         </label>
       )}
@@ -22,7 +21,7 @@ const Input = React.forwardRef(({ name, label, icon, ...rest }, ref) => {
         name={name}
         {...rest}
         className="px-2 py-1 w-full border rounded-md outline-none transition duration-150 ease-in-out focus:border-indigo-500 
-        focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:bg-slate-100"
+        focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:bg-slate-50"
       />
     </div>
   );
