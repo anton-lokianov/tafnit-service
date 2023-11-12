@@ -8,8 +8,8 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { setLogin } from "../store/auth-slice";
-import { useLoginMutation } from "../store/api-service";
+import { setLogin } from "../service/auth-slice";
+import { useLoginMutation } from "../service/user-api";
 
 const Login = () => {
   const controls = useAnimation();
@@ -58,7 +58,8 @@ const Login = () => {
           />
           <Button
             className="primeBtn tracking-[0.3em] mt-5 flex justify-center items-center gap-2 group"
-            type="submit">
+            type="submit"
+          >
             {isLoading ? (
               "Loading..."
             ) : (

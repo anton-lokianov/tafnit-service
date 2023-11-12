@@ -2,7 +2,8 @@ import sessionStorage from "redux-persist/lib/storage/session";
 import { persistStore, persistReducer } from "redux-persist";
 import { configureStore } from "@reduxjs/toolkit";
 import authSlice from "./auth-slice";
-import { apiService } from "./api-service";
+import { userApi } from "./user-api";
+import uiSlice from "./ui-slice";
 
 const authPersistConfig = {
   key: "auth",
@@ -13,7 +14,8 @@ const persistedAuthReducer = persistReducer(authPersistConfig, authSlice);
 
 const rootReducer = {
   auth: persistedAuthReducer,
-  [apiService.reducerPath]: apiService.reducer,
+  ui: uiSlice,
+  [userApi.reducerPath]: userApi.reducer,
 };
 
 export const store = configureStore({
@@ -21,8 +23,8 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-      ignoredPaths: ["apiService"],
-    }).concat(apiService.middleware),
+      ignoredPaths: ["userApi"],
+    }).concat(userApi.middleware),
 });
 
 export const persistor = persistStore(store);

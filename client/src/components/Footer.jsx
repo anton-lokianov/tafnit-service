@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "./ui/Button";
-import { setLogout } from "../store/auth-slice";
+import { setLogout } from "../service/auth-slice";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 const Footer = () => {

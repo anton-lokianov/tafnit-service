@@ -82,8 +82,8 @@ const driverSchema = new Schema({
 
 const shiftSchema = new Schema({
   driver: { type: Schema.Types.ObjectId, ref: "driver", required: true },
-  startTime: { type: Date.now },
-  endTime: { type: Date.now },
+  startTime: { type: Date },
+  endTime: { type: Date },
   callsAssigned: [{ type: Schema.Types.ObjectId, ref: "roadCall" }],
   callsCompleted: [{ type: Schema.Types.ObjectId, ref: "roadCall" }],
   status: { type: String, enum: ["active", "inactive"], default: "inactive" },
@@ -109,6 +109,12 @@ const notificationSchema = new Schema({
   timestamp: { type: Date, default: Date.now },
 });
 
+const bugReports = new Schema({
+  creator: { type: Schema.Types.ObjectId, ref: "user", required: true },
+  message: { type: String, required: true },
+  timestamp: { type: Date, default: Date.now },
+});
+
 export const Notification = model("notification", notificationSchema);
 export const Shift = model("shift", shiftSchema);
 export const RoadCall = model("roadCall", roadCallSchema);
@@ -116,3 +122,4 @@ export const Driver = model("driver", driverSchema);
 export const User = model("user", userSchema);
 export const Massage = model("massage", messageSchema);
 export const Client = model("client", clientSchema);
+export const BugReport = model("bugReport", bugReports);
