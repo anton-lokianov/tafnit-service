@@ -69,17 +69,12 @@ const driverSchema = new Schema({
   phoneNumber: { type: String, required: true, trim: true, minlength: 10 },
   id: { type: Number, required: true, minlength: 9 },
   carNumber: { type: String, required: true, minlength: 2 },
-  status: {
-    type: String,
-    enum: ["available", "unavailable"],
-    required: true,
-    default: "unavailable",
-  },
+  status: { type: Schema.Types.ObjectId, ref: "shift" },
   employeeType: {
     type: String,
-    enum: ["towDriver", "deliveryDriver", "repairDriver"],
+    enum: ["tow-driver", "delivery-driver", "repair-driver"],
     required: true,
-    default: "towDriver",
+    default: "tow-driver",
   },
   driverNumber: { type: Number, required: true },
   timestamp: { type: Date, default: Date.now },
@@ -87,9 +82,11 @@ const driverSchema = new Schema({
 
 const shiftSchema = new Schema({
   driver: { type: Schema.Types.ObjectId, ref: "driver", required: true },
-  startTime: { type: Date, required: true },
-  endTime: { type: Date, required: true },
+  startTime: { type: Date.now },
+  endTime: { type: Date.now },
   callsAssigned: [{ type: Schema.Types.ObjectId, ref: "roadCall" }],
+  callsCompleted: [{ type: Schema.Types.ObjectId, ref: "roadCall" }],
+  status: { type: String, enum: ["active", "inactive"], default: "inactive" },
 });
 
 const messageSchema = new Schema({

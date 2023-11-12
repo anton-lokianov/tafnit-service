@@ -3,20 +3,20 @@ import Input from "../components/ui/Input";
 import { FiLogIn, FiUser, FiLock } from "react-icons/fi";
 import { GiTowTruck } from "react-icons/gi";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { fetchLogin } from "../utils/fetch-db-api";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../store/auth-slice";
+import { useLoginMutation } from "../store/api-service";
 
 const Login = () => {
   const controls = useAnimation();
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
+  const [login, { isLoading, error }] = useLoginMutation();
 
   useEffect(() => {
     controls.start({
@@ -27,17 +27,14 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      setIsLoading(true);
-      const login = await fetchLogin(data.username, data.password);
-      if (login) {
-        const { user, token } = login;
-        dispatch(setLogin({ user, token }));
-        navigate("/dashboard");
-        setIsLoading(false);
-      }
+      const result = await login({
+        username: data.username,
+        password: data.password,
+      }).unwrap();
+      dispatch(setLogin({ user: result.user, token: result.token }));
+      navigate("/dashboard");
     } catch (error) {
       console.error("An error occurred during login:", error);
-      setIsLoading(false);
     }
   };
 
@@ -61,8 +58,7 @@ const Login = () => {
           />
           <Button
             className="primeBtn tracking-[0.3em] mt-5 flex justify-center items-center gap-2 group"
-            type="submit"
-          >
+            type="submit">
             {isLoading ? (
               "Loading..."
             ) : (
