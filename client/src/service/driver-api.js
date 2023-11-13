@@ -7,6 +7,7 @@ export const driverApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   tagTypes: ["Drivers"],
   endpoints: (builder) => ({
+    // getting drivers
     getDrivers: builder.query({
       query: () => "drivers/getDrivers",
     }),
@@ -18,6 +19,8 @@ export const driverApi = createApi({
         method: "POST",
         body: driver,
       }),
+
+      // updating the store
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data: driver } = await queryFulfilled;

@@ -26,8 +26,7 @@ const Modal = ({ children, id }) => {
       className="z-40 fixed inset-0 overflow-y-auto"
       aria-labelledby="modal-title"
       role="dialog"
-      aria-modal="true"
-    >
+      aria-modal="true">
       <div className="flex items-center justify-center min-h-screen">
         <div
           className="fixed inset-0 bg-slate-100 opacity-50"

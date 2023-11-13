@@ -8,7 +8,7 @@
 
 body,
 #root {
-  @apply h-screen w-full bg-slate-200 min-h-full;
+  @apply h-screen w-full bg-slate-100 min-h-full;
 }
 
 @layer base {
@@ -22,7 +22,8 @@ body,
 
   /* change tertiaryBtn color */
   .tertiaryBtn {
-    @apply bg-orange-900 text-white hover:bg-orange-950 ease-in-out transition-all;
+    @apply bg-slate-400 text-white hover:bg-slate-300 ease-in-out transition-all ring-orange-600 ring-1 hover:ring-2
+    hover:text-indigo-500;
   }
 
   .h2 {

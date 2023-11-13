@@ -82,8 +82,8 @@ const driverSchema = new Schema({
 
 const shiftSchema = new Schema({
   driver: { type: Schema.Types.ObjectId, ref: "driver", required: true },
-  startTime: { type: Date },
-  endTime: { type: Date },
+  startTime: { type: Date, default: Date.now },
+  endTime: { type: Date, default: Date.now },
   callsAssigned: [{ type: Schema.Types.ObjectId, ref: "roadCall" }],
   callsCompleted: [{ type: Schema.Types.ObjectId, ref: "roadCall" }],
   status: { type: String, enum: ["active", "inactive"], default: "inactive" },
