@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import authRoute from "./controllers/auth.js";
+import driverRoute from "./controllers/driver.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 app.use("/auth", authRoute);
+app.use("/drivers", driverRoute);
 
 const PORT = process.env.PORT || 5000;
 

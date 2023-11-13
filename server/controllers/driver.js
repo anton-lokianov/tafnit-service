@@ -1,5 +1,5 @@
 import { Router } from "express";
-import Driver from "../models/Driver.js";
+import { Driver } from "../models/tafnit.js";
 
 const router = Router();
 
@@ -19,3 +19,14 @@ router.post("/createDriver", async (req, res) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 });
+
+router.get("/getDrivers", async (req, res) => {
+  try {
+    const drivers = await Driver.find().populate("status");
+    res.status(200).json(drivers);
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+});
+
+export default router;

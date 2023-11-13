@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = React.forwardRef(({ name, label, icon, ...rest }, ref) => {
+const Input = React.forwardRef(({ name, label, icon, error, ...rest }, ref) => {
   return (
     <div className="relative">
       {label && (
@@ -23,6 +23,7 @@ const Input = React.forwardRef(({ name, label, icon, ...rest }, ref) => {
         className="px-2 py-1 w-full border rounded-md outline-none transition duration-150 ease-in-out focus:border-indigo-500 
         focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:bg-slate-50"
       />
+      {error && <p className="text-red-600 text-[0.8rem]">{error.message}</p>}
     </div>
   );
 });

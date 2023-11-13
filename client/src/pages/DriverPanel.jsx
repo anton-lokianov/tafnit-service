@@ -6,6 +6,7 @@ import Modal from "../components/shared/Modal";
 import DriversForm from "../components/forms/DriverForm";
 import { useDispatch } from "react-redux";
 import { openModal } from "../service/ui-slice";
+import DriverList from "../components/DriverList";
 
 const DriverPanel = () => {
   const dispatch = useDispatch();
@@ -24,8 +25,7 @@ const DriverPanel = () => {
         <div className="flex items-center flex-col gap-2 justify-center">
           <Button
             className="secondaryBtn w-[12rem]"
-            onClick={() => dispatch(openModal({ modalId: "driverForm" }))}
-          >
+            onClick={() => dispatch(openModal({ modalId: "driverForm" }))}>
             create new driver
           </Button>
           <Button className="secondaryBtn w-[12rem]">
@@ -33,6 +33,7 @@ const DriverPanel = () => {
           </Button>
         </div>
       </div>
+      <DriverList />
       <Modal id="driverForm">
         <DriversForm />
       </Modal>

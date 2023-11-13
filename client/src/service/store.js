@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import { configureStore } from "@reduxjs/toolkit";
 import authSlice from "./auth-slice";
 import { userApi } from "./user-api";
+import { driverApi } from "./driver-api";
 import uiSlice from "./ui-slice";
 
 const authPersistConfig = {
@@ -16,6 +17,7 @@ const rootReducer = {
   auth: persistedAuthReducer,
   ui: uiSlice,
   [userApi.reducerPath]: userApi.reducer,
+  [driverApi.reducerPath]: driverApi.reducer,
 };
 
 export const store = configureStore({
@@ -24,7 +26,7 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
       ignoredPaths: ["userApi"],
-    }).concat(userApi.middleware),
+    }).concat(userApi.middleware, driverApi.middleware),
 });
 
 export const persistor = persistStore(store);
