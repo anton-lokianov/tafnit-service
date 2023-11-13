@@ -3,9 +3,10 @@ import DriverDataCard from "./DriverDataCard";
 
 const DriverList = () => {
   const { data: drivers, isFetching, isError } = useGetDriversQuery();
+  console.log(drivers);
 
   return (
-    <div className="flex p-6 justify-between">
+    <div className="flex flex-wrap p-6 gap-3 mx-auto">
       {drivers?.map((driver) => (
         <DriverDataCard key={driver.id} driver={driver} />
       ))}

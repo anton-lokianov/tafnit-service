@@ -10,6 +10,7 @@ export const driverApi = createApi({
     // getting drivers
     getDrivers: builder.query({
       query: () => "drivers/getDrivers",
+      providesTags: ["Drivers"],
     }),
 
     // adding driver

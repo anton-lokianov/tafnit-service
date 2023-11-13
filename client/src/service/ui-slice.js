@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   modals: {
     driverForm: false,
-    error: false,
+    loginError: false,
   },
 };
 

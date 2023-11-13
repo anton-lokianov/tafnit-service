@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import authRoute from "./controllers/auth.js";
 import driverRoute from "./controllers/driver.js";
+import shiftRoute from "./controllers/shift.js";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 app.use("/auth", authRoute);
 app.use("/drivers", driverRoute);
+app.use("/shifts", shiftRoute);
 
 const PORT = process.env.PORT || 5000;
 

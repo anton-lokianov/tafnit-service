@@ -22,7 +22,7 @@ router.post("/createDriver", async (req, res) => {
 
 router.get("/getDrivers", async (req, res) => {
   try {
-    const drivers = await Driver.find().populate("status");
+    const drivers = await Driver.find();
     res.status(200).json(drivers);
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });

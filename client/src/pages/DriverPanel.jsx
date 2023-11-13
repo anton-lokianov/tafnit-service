@@ -12,7 +12,7 @@ const DriverPanel = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full h-full">
       <div className="flex justify-between border-b-2 border-slate-400 py-8 px-14">
         <div className="flex flex-col gap-2 w-[300px] justify-center">
           <p className="text-center text-slate-900 font-semibold text-xl">
@@ -25,7 +25,8 @@ const DriverPanel = () => {
         <div className="flex items-center flex-col gap-2 justify-center">
           <Button
             className="secondaryBtn w-[12rem]"
-            onClick={() => dispatch(openModal({ modalId: "driverForm" }))}>
+            onClick={() => dispatch(openModal({ modalId: "driverForm" }))}
+          >
             create new driver
           </Button>
           <Button className="secondaryBtn w-[12rem]">
